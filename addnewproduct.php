@@ -13,9 +13,9 @@ $description = filter_input(INPUT_POST, 'description');
 $id = filter_input(INPUT_POST, 'id');
 
 
-$title = $connection->escape_string($title);
-$price = $connection->escape_string($price);
-$description = $connection->escape_string($description);
+$title = $connection->real_escape_string($title);
+$price = $connection->real_escape_string($price);
+$description = $connection->real_escape_string($description);
     
 //$title = mysqli_escape_string($link, $title);
 //$price = mysqli_escape_string($link, $price);
