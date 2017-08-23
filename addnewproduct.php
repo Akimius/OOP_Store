@@ -31,16 +31,21 @@ if(!empty($id)) {
 
 } else {
 
-    $sql = "INSERT INTO products VALUES (null, '{$title}', '{$description}', '{$price}')";
+    // $sql = "INSERT INTO products VALUES (null, '{$title}', '{$description}', '{$price}')";
     // In case id is empty, create a new record
+    // prepare and bind
+    $stmt = $connection->prepare("INSERT INTO products (title, price, description) VALUES (?, ?, ?)");
+    $stmt->bind_param("sds", $title, $price, $description);
 
 }
 
 if(!empty($title) && !empty($price) && !empty($description)){
 
-   if($query = $db->query($sql)){
+    $stmt->execute();
+
+/*   if($query = $db->query($sql)){
         echo json_encode([ "status" => "ok", "msg" => "ok" ]);
-    }
+    }*/
 
     
 }else{
