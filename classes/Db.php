@@ -33,6 +33,11 @@ class Db
     public function query($sql) {
         return $this->connection->query($sql);
     }
+
+    public function mysqli() {
+        return $this->connection;
+    }
+
 }
 
 /*    $db = Db::getInstance(); //

@@ -7,22 +7,18 @@ header('Content-Type: application/json');
 
     $db = Db::getInstance(); //
 
+$id = filter_input(INPUT_POST, 'id');
+
 $title = filter_input(INPUT_POST, 'title');
 $price = filter_input(INPUT_POST, 'price');
 $description = filter_input(INPUT_POST, 'description');
-$id = filter_input(INPUT_POST, 'id');
 
-/*
-$title = $connection->real_escape_string($title);
-$price = $connection->real_escape_string($price);
-$description = $connection->real_escape_string($description);*/
-    
-//$title = mysqli_escape_string($link, $title);
-//$price = mysqli_escape_string($link, $price);
-//$description = mysqli_escape_string($link, $description);
+/*$title = $db->mysqli()->real_escape_string($title);
+$price = $db->mysqli()->real_escape_string($price);
+$description = $db->mysqli()->real_escape_string($description);*/
 
 
-$sql = '';
+
 
 if(!empty($id)) {
 
@@ -30,22 +26,20 @@ if(!empty($id)) {
     // In case id not empty update the existing record
 
 } else {
-
-    // $sql = "INSERT INTO products VALUES (null, '{$title}', '{$description}', '{$price}')";
     // In case id is empty, create a new record
-    // prepare and bind
-    $stmt = $connection->prepare("INSERT INTO products (title, price, description) VALUES (?, ?, ?)");
-    $stmt->bind_param("sds", $title, $price, $description);
-
+    $sql = "INSERT INTO products (title, price, description) VALUES (?, ?, ?)";
 }
 
 if(!empty($title) && !empty($price) && !empty($description)){
 
-    $stmt->execute();
+   if($stmt = $db->mysqli()){
 
-/*   if($query = $db->query($sql)){
-        echo json_encode([ "status" => "ok", "msg" => "ok" ]);
-    }*/
+       $stmt = $db->mysqli()->prepare($sql);
+       $stmt->bind_param("sds", $title, $price, $description);
+       $stmt->execute();
+
+       echo json_encode([ "status" => "ok", "msg" => "ok" ]);
+    }
 
     
 }else{
