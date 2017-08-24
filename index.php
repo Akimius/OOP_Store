@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>JS OOP STORE</title>
@@ -10,12 +9,11 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!--    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
-<!--    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">-->
-
     <link rel="stylesheet" href="css/main.css">
 
 </head>
+
+
 
 <body>
     <div class="container">
