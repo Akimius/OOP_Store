@@ -1,3 +1,4 @@
+
 function appendProduct (obj) {
     $('.product-list > .row').append("<div class='col-md-4' data-id='" +
         obj.id + "'><h2>" + obj.title + "</h2><p>" + obj.price + "</p><p>" +
@@ -70,7 +71,7 @@ $('.addProduct').click(function () {
 });
 
 
-$(document).on('click', '.removeProduct' ,function () {
+$(document).on('click', '.removeProduct', function () {
     var itemId = $(this).parent().attr('data-id');
 
     if(confirm("Вы действительно хотите удалить?")){
@@ -82,10 +83,9 @@ $(document).on('click', '.removeProduct' ,function () {
     }
 });
 
-$(document).on('click', '.editProduct' ,function () {
+$(document).on('click', '.editProduct', function () {
     var itemId = $(this).parent().attr('data-id');
     $(".product-id").val(itemId);
-
 
     $.get('/getproducts.php?id='+itemId, function(res){
        var item = res[0];

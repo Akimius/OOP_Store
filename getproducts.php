@@ -7,7 +7,7 @@ header('Content-Type: application/json');
     });
 
 $id = filter_input(INPUT_GET, 'id');
-$sql = 'SELECT * FROM products';
+$sql = "SELECT * FROM products";
 
 $db = Db::getInstance();
 

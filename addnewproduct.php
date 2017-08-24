@@ -18,11 +18,10 @@ $price = $db->mysqli()->real_escape_string($price);
 $description = $db->mysqli()->real_escape_string($description);*/
 
 
-
-
 if(!empty($id)) {
 
-    $sql = "UPDATE products SET title='{$title}', description='{$description}', price='{$price}'  WHERE id='{$id}'";
+    // $sql = "UPDATE products SET title='{$title}', description='{$description}', price='{$price}'  WHERE id='{$id}'";
+    $sql = "UPDATE products SET title=?, description=?, price=?  WHERE id=?";
     // In case id not empty update the existing record
 
 } else {
