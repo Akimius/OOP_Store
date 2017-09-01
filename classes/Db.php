@@ -1,6 +1,8 @@
 <?php
 
-require_once 'connection.php';
+// namespace myDb;
+require 'connection.php';
+
 
 class Db
 {
@@ -14,7 +16,7 @@ class Db
 
     public static function getInstance () {
         if (is_null(self::$instance)) {
-            self::$instance = new self ();
+            self::$instance = new self (); // new myDb\self () ?????
         }
         return self::$instance;
     }

@@ -1,5 +1,10 @@
 <?php
 // the page works for both get all products and edit product
+require 'connection.php';
+
+// require '\classes\Db.php';
+// use \classes\Db;
+
 header('Content-Type: application/json');
 
     spl_autoload_register(function ($class) {
